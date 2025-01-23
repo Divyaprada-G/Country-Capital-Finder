@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country and Capital Selector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .capital {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff5722;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Select a Country</h2>
+        <select id="countrySelector" onchange="showCapital()">
+            <option value="" disabled selected>Select a country</option>
+            <option value="Washington, D.C.">United States</option>
+            <option value="Ottawa">Canada</option>
+            <option value="Tokyo">Japan</option>
+            <option value="Canberra">Australia</option>
+        </select>
+        <div id="capital" class="capital"></div>
+    </div>
+
+    <script>
+        function showCapital() {
+            const selector = document.getElementById("countrySelector");
+            const capital = selector.value;
+            const capitalDiv = document.getElementById("capital");
+            capitalDiv.textContent = `Capital: ${capital}`;
+        }
+    </script>
+</body>
+</html>
